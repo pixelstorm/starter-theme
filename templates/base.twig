@@ -12,6 +12,7 @@
     {{function('wp_head')}}
   </head>
   <body>
+	  {% include 'parts/nav.twig' %}
     {% block content %}
 	    default content - empty
     {% endblock %}
