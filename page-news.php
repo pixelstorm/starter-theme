@@ -23,6 +23,14 @@
 
 $context = Timber::context();
 
+$news_query = array (
+	'post_type' => 'post',
+	'orderby' => 'ID',
+	'order' => 'DESC',
+	'posts_per_page' => '20'
+);
+$context['posts'] = new Timber\PostQuery($news_query);
+
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;
 Timber::render( array( 'pages/' . $timber_post->post_name . '.twig', 'page.twig' ), $context );
