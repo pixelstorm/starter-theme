@@ -17,14 +17,10 @@
 						</a>
 					</h5>
 					
-					{% if post.terms('post_tag') %}
-					<span class="font-weight-light text-secondary ml-2">
-						tags
-					</span>
-					{% endif %}
-					{% for term in post.terms('post_tag') %}
-						<a class="badge btn btn-light" href="{{term.link}}">{{term.name}}</a>
-					{% endfor %}
+
+					{{ include ( 'parts/terms.twig', {terms_list: post.terms('sponsor'), terms_label: 'Sponsors'} ) }}
+					{{ include ( 'parts/terms.twig', {terms_list: post.terms('categories'), terms_label: 'Categories'} ) }}
+					{{ include ( 'parts/terms.twig', {terms_list: post.terms('post_tag'), terms_label: 'Tags'} ) }}
 					
 					<div class="mt-2">
 						{{post.content|excerpt(50)}}

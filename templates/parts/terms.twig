@@ -1,0 +1,8 @@
+{% if terms_list %}
+<span class="font-weight-light text-secondary ml-2">
+	{{terms_label}}
+</span>
+{% endif %}
+{% for term in terms_list %}
+	<a class="badge btn btn-light" href="{{term.link}}">{{term.name}}</a>
+{% endfor %}
