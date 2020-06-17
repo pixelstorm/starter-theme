@@ -16,6 +16,16 @@
 							<span class="text-dark">{{post.title}}</span>
 						</a>
 					</h5>
+					
+					{% if post.terms('post_tag') %}
+					<span class="font-weight-light text-secondary ml-2">
+						tags
+					</span>
+					{% endif %}
+					{% for term in post.terms('post_tag') %}
+						<a class="badge btn btn-light" href="{{term.link}}">{{term.name}}</a>
+					{% endfor %}
+					
 					<div class="mt-2">
 						{{post.content|excerpt(50)}}
 						<a class="badge btn btn-light" href="{{post.link}}">Read More</a>
