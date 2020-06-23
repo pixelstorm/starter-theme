@@ -27,7 +27,8 @@ $news_query = array (
 	'post_type' => 'post',
 	'orderby' => 'ID',
 	'order' => 'DESC',
-	'posts_per_page' => '20'
+	'posts_per_page' => '20',
+	'paged' => $paged
 );
 $context['posts'] = new Timber\PostQuery($news_query);
 
