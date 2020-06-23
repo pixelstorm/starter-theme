@@ -2,18 +2,26 @@
 {% block content %}
 	<div class="container mt-5">
 		{% for post in posts %}
-			<div class="row py-3 border-bottom">
-				<div class="col-2">
+			<div class="row py-3 border-bottom {{post.breaking ? 'border border-danger bg-light rounded py-4'}}">
+				<div class="{{ post.breaking ? 'col-4' : 'col-2' }}">
 
 					{% if post.thumbnail.src %}
 						
-						<img src="{{ post.thumbnail.src('thumbnail') }}" class="my-thumb-class" alt="Image for {{ post.title }}" />
+						<img src="{{ post.breaking ? post.thumbnail.src('medium') : post.thumbnail.src('thumbnail') }}" class="my-thumb-class" alt="Image for {{ post.title }}" />
 					{% endif %}
 				</div>
-				<div class="col-10">
+				<div class="{{ post.breaking ? 'col-8' : 'col-10'}}">
 					<h5>
 						<a href="{{post.link}}">
-							<span class="text-dark">{{post.title}}</span>
+							{% if post.breaking %}
+								
+								<span class="badge badge-danger font-weigh-bold">
+									breaking news
+								</span>
+								<span class="text-danger font-weight-bold">{{post.title}}</span>
+							{%else%}
+								<span class="text-dark">{{post.title}}</span>
+							{% endif %}
 						</a>
 					</h5>
 					
@@ -24,6 +32,7 @@
 					
 					<div class="mt-2">
 						{{post.content|excerpt(50)}}
+						{{post.breaking ? post.content|excerpt(110) : post.content|excerpt(50)}}
 						<a class="badge btn btn-light" href="{{post.link}}">Read More</a>
 					</div>
 				</div>
