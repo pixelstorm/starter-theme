@@ -1,4 +1,15 @@
 {% extends 'base.twig' %}
+{% block hero %}
+	{% if post.breaking %}
+		<div class="container-fluid py-5"style = " background: url('{{ post.thumbnail.src('large') }}')">
+			<div class="container py-3">
+				<h1 class="text-white text-center font-weight-bold" >
+					breaking news!
+				</h1>
+			</div>
+		</div>
+	{% endif %}
+{%endblock%}
 
 {% block content %}
 
