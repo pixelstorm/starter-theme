@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+{% block content %}
+	<div class="container my-5">
+		<h3>results for: 
+			<span class="badge badge-warning">
+				{{term.name}}
+			</span>
+		</h3>
+			{% for post in term.posts(-1) %}
+			{% include 'parts/news-teaser.twig' %}
+			{% endfor %}
+	</div>
+{% endblock %}

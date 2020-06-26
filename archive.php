@@ -36,5 +36,6 @@ if ( is_day() ) {
 }
 
 $context['posts'] = new Timber\PostQuery();
+$context['term'] = new Timber\Term();
 
 Timber::render( $templates, $context );
