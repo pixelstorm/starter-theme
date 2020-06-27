@@ -1,0 +1,13 @@
+{% extends 'base.twig' %}
+{% block content %}
+	<div class="container my-5">
+		<h3>Search results for: 
+			<span class="badge badge-warning">
+				{{query}}
+			</span>
+		</h3>
+			{% for post in posts %}
+			{% include 'parts/news-teaser.twig' %}
+			{% endfor %}
+	</div>
+{% endblock %}
