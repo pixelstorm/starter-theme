@@ -1,0 +1,28 @@
+{% extends 'base.twig' %}
+{% block content %}
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-3">
+				<img src="{{post.thumbnail.src | resize(218)}}" alt="{{post.title}}">
+			</div>
+			<div class="col-9 text-left">
+				<h2 class="font-weight-bold border-bottom border-secondary pb-4">
+					{{post.title}}
+				</h2>
+				<div class="font-italic font-weight-light mt-4">
+					{{post.content}}
+				</div>
+			</div>
+			<div>
+				{% if post.meta('favourite_places') %}
+					<h5 class="mt-4">
+						Favourite Places:
+					</h5>
+				{% endif %}
+				{% for place in post.meta('favourite_places') %}
+					<h6>{{place.title}}</h6>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
