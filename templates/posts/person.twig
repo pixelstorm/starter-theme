@@ -25,4 +25,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="container mt-5">
+		<hr>
+		<h3>
+			see also:
+		</h3>
+		<div class="row mt-4">
+			{% for person in people %}
+				<div class="col text-secondary mb-5">
+					<img src="{{person.thumbnail.src('thumbnail')}}" alt="{{person.name}}">
+				</div>
+				<h5><a href="{{person.link}}">{{person.name}}</a></h5>
+			{% endfor %}
+		</div>
+	</div>
 {% endblock %}
