@@ -1,4 +1,10 @@
 {% extends 'base.twig' %}
+
+{% block hero %}
+		{% from 'parts/macros.twig' import hero %}
+		{{hero(Image(post.image).src('full'), post.header) }}
+{% endblock %}
+
 {% block content %}
 	<div class="container mt-2">
 		{% for place in places.posts %}
