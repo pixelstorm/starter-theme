@@ -24,6 +24,7 @@
 $context = Timber::context();
 
 $context['places'] = new Timber\Term('food');
+$context['term_name'] = 'food';
 
 $people_query = array (
 	'post_type' => 'person',

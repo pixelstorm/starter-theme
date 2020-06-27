@@ -10,9 +10,10 @@
 		{% for place in places.posts %}
 			<div class="row mb-2">
 				<div class="col-2">
-					<img src="{{places.thumbnail.src('large')}}" alt="place.title">
+					<img src="{{place.thumbnail.src('thumbnail')}}" alt="place.title">
 				</div>
 			</div>
+
 			<div class="col-10">
 				<div class="mt-2 float-right">
 					{% for picture in place.meta('gallery') %}
@@ -21,6 +22,19 @@
 				</div>
 				<h5>{{place.title}}</h5>
 				{{place.content|excerpt(20)}}
+				{# reverse query #}
+				{% if term_name in place.terms %}
+					<div class="mt-4">
+						{% for person in people %}
+							{% if place.title in person.meta('favourite_places') %}
+								<a href="{{person.link}}">
+								<img src="{{person.thumbnail.src('thumbnail')|resize('70')}}" alt="">
+								</a>
+							{% endif %}
+						{% endfor %}
+					
+					</div>
+				{% endif %}
 			</div>
 		{% endfor %}
 	</div>
