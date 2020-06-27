@@ -1,0 +1,10 @@
+
+{% macro hero(image, header) %}
+		<div class="container-fluid py-5"style = " background: url('{{ image }}')">
+			<div class="container py-3">
+				<h1 class="text-white text-center font-weight-bold" >
+					{{header}}	
+				</h1>
+			</div>
+		</div>
+{% endmacro %}
