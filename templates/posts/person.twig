@@ -32,10 +32,12 @@
 		</h3>
 		<div class="row mt-4">
 			{% for person in people %}
+				{% if person.id != post.id %}
 				<div class="col text-secondary mb-5">
 					<img src="{{person.thumbnail.src('thumbnail')}}" alt="{{person.name}}">
 				</div>
 				<h5><a href="{{person.link}}">{{person.name}}</a></h5>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
