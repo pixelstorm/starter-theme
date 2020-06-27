@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+{% block content %}
+	<div class="container mt-2">
+		{% for place in places.posts %}
+			<div class="row mb-2">
+				<div class="col-2">
+					<img src="{{places.thumbnail.src('large')}}" alt="place.title">
+				</div>
+			</div>
+			<div class="col-10">
+				<h5>{{place.title}}</h5>
+				{{place.content|excerpt(20)}}
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
