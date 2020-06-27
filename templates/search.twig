@@ -7,7 +7,9 @@
 			</span>
 		</h3>
 			{% for post in posts %}
-			{% include 'parts/news-teaser.twig' %}
+				{% if post.type=='post' %}
+					{% include 'parts/news-teaser.twig' %}
+				{% endif %}
 			{% endfor %}
 	</div>
 {% endblock %}
