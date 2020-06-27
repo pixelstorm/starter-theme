@@ -14,6 +14,11 @@
 				</div>
 			</div>
 			<div class="col-10">
+				<div class="mt-2 float-right">
+					{% for picture in place.meta('gallery') %}
+						<img src="{{Image(picture).src(thumbnail)|resize('80')}}" alt="">
+					{% endfor %}
+				</div>
 				<h5>{{place.title}}</h5>
 				{{place.content|excerpt(20)}}
 			</div>
