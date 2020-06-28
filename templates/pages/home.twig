@@ -1,0 +1,50 @@
+{% extends 'base.twig' %}
+{% block content%}
+	<div class="container">
+		<div class="row mt-4">
+			<div class="col-8">
+				{% if post.top_story %}
+					{% set top = post.meta('top_story') %}
+					<div class="row pt-2">
+						<div class="col-4">
+							<img src="{{top.thumbnail.src('thumbnail')}}" alt="{{top.title}}">
+						</div>
+						<div class="col-8">
+							<h3>
+								{% if top.breaking %}
+
+									<span class="badge badge-danger">{{custom_options.breaking_label}}</span>
+									<a class = "text-danger" href="{{top.link}}">{{top.title}}</a>
+
+								{% else  %}
+										
+									<a class = "text-dark" href="{{top.link}}">{{top.title}}</a>
+									
+								{% endif %}
+							</h3>
+							{{top.content|excerpt(30)}}
+							<a href="{{top.link}}">Read more</a>
+						</div>
+					</div>
+				{% endif %}
+				{% if post.featured_news %}
+					<div class="row mt-4">
+						{% for news in post.meta('featured_news') %}
+							{% if news.thumbnail.src %}
+								<img src="{{news.thumbnail.src('thumbnail')}}" alt="{{post.title}}">
+							{% endif %}
+							<h6>
+								{{news.breaking ? '<span>' ~ options_page.breaking_label ~ '</span>'}}
+								<a href="{{news.link}}">{{news.title}}</a>
+							</h6>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<div class="col-4">
+			
+			
+			</div>
+		</div>
+	</div>
+{% endblock %}
