@@ -41,10 +41,10 @@
 					</div>
 				{% endif %}
 			</div>
-			<div class="col-4">
-			
-			
-			</div>
+				{{ include ( 'parts/latest-news.twig', {label: 'Events', term: events.posts(5)} ) }}
+				{{ include ( 'parts/latest-news.twig', {label: 'sports', term: sports.posts(5)} ) }}
+				{{ include ( 'parts/latest-news.twig', {label: 'Animals', term: animals.posts(5)} ) }}
+				{{ include ( 'parts/latest-news.twig', {label: 'Architecture', term: architecture.posts(5)} ) }}
 		</div>
 	</div>
 {% endblock %}
