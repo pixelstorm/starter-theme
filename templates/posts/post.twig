@@ -20,7 +20,7 @@
 
 				{# reading time#}
 				{% set word_count = post.content|split(' ')|length %}
-				{% set reading_time = ( word_count / average_reading_time )|round(0, 'ceil') %}
+				{% set reading_time = ( word_count / options_page.average_reading_time )|round(0, 'ceil') %}
 				<span class="badge badge-light">
 					Word Count: {{word_count}}
 				</span>

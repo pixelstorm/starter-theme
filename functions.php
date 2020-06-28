@@ -86,8 +86,9 @@ class StarterSite extends Timber\Site {
 		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = new Timber\Menu();
 		$context['site']  = $this;
-		$context['average_reading_time']  = get_field('average_reading_time', 'options');
-		$context['header_banner_text'] = get_field('breaking_label', 'options');
+		//$context['average_reading_time']  = get_field('average_reading_time', 'options');
+		//$context['header_banner_text'] = get_field('breaking_label', 'options');
+		$context['options_page'] = get_fields('options');
 		return $context;
 	}
 
