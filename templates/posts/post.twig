@@ -2,7 +2,7 @@
 {% block hero %}
 	{% if post.breaking %}
 		{% from 'parts/macros.twig' import hero %}
-		{{hero(post.thumbnail.src('large'), 'the banner text') }}
+		{{hero(post.thumbnail.src('large'), header_banner_text) }}
 	{% endif %}
 {%endblock%}
 
