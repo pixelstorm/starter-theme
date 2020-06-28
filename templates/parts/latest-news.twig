@@ -1,5 +1,12 @@
+{% set featured_count = 0 %}
+{% for news in attribute(term, 'posts', [5]) %}
+	{% if news.id in featured_list %}
+		{% set featured_count = featured_count + 1 %}
+	{% endif %}
+{% endfor %}
 				<h5>{{label}}</h5>
-				{% for news in term %}
+					{% for news in attribute(term, 'posts', [5 + featured_count]) %}
+						
 					{% if news.id not in featured_list %}
 						
 					<h6>
