@@ -1,8 +1,10 @@
-			<div class="col-4">
 				<h5>{{label}}</h5>
 				{% for news in term %}
+					{% if news.id not in featured_list %}
+						
 					<h6>
 						<a href="{{news.link}}">{{news.title|excerpt(6)}}</a>
 					</h6>
+
+					{% endif %}
 				{% endfor %}
-			</div>

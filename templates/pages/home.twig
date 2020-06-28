@@ -3,6 +3,7 @@
 	<div class="container">
 		<div class="row mt-4">
 			<div class="col-8">
+				{% set featured_list = [] %}
 				{% if post.top_story %}
 					{% set top = post.meta('top_story') %}
 					<div class="row pt-2">
@@ -26,7 +27,9 @@
 							<a href="{{top.link}}">Read more</a>
 						</div>
 					</div>
+					{% set featured_list = featured_list|merge([top.id]) %}
 				{% endif %}
+				{# featured news #}
 				{% if post.featured_news %}
 					<div class="row mt-4">
 						{% for news in post.meta('featured_news') %}
@@ -37,14 +40,18 @@
 								{{news.breaking ? '<span>' ~ options_page.breaking_label ~ '</span>'}}
 								<a href="{{news.link}}">{{news.title}}</a>
 							</h6>
+						{% set featured_list = featured_list|merge([news.id]) %}
 						{% endfor %}
 					</div>
 				{% endif %}
 			</div>
+			{#right column#}
+			<div class="col-4">
 				{{ include ( 'parts/latest-news.twig', {label: 'Events', term: events.posts(5)} ) }}
 				{{ include ( 'parts/latest-news.twig', {label: 'sports', term: sports.posts(5)} ) }}
 				{{ include ( 'parts/latest-news.twig', {label: 'Animals', term: animals.posts(5)} ) }}
 				{{ include ( 'parts/latest-news.twig', {label: 'Architecture', term: architecture.posts(5)} ) }}
+			</div>
 		</div>
 	</div>
 {% endblock %}
