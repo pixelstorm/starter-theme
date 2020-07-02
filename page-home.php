@@ -27,6 +27,7 @@ $context['events'] = new Timber\Term('events');
 $context['sports'] = new Timber\Term('sports');
 $context['animals'] = new Timber\Term('animals');
 $context['architecture'] = new Timber\Term('architecture');
+$context['people'] = new Timber\Term('homepage');
 
 $timber_post     = new Timber\Post();
 $context['post'] = $timber_post;

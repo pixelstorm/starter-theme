@@ -44,6 +44,32 @@
 						{% endfor %}
 					</div>
 				{% endif %}
+
+				{#promotion#}
+				<div class="row">
+				
+					{% for person in people.posts({
+					posts_per_page: 1,
+					orderby: 'rand'
+					})%}
+					<div class="col-3">
+						<img src="{{person.thumbnail.src('thumbnail')}}" alt="">
+					</div>
+					<div class="col-9">
+						<h4>
+							<a href="{{person.link}}">{{person.title}}</a>
+						</h4>
+						<div>
+						
+							{{person.content|excerpt(18)}}
+						</div>
+
+					</div>
+
+						
+					{% endfor %}
+				
+				</div>
 			</div>
 			{#right column#}
 			<div class="col-4">
